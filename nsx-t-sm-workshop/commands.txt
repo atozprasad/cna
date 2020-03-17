@@ -1,0 +1,1 @@
+kubectl apply -f nsx-sm_kops1-ignition-33.k8s.local.yaml
