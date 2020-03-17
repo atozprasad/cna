@@ -1,0 +1,22 @@
+#Installation page https://helm.sh/docs/using_helm/#installing-helm
+brew install kubernetes-helm
+#For Tiller
+helm init
+
+Creating /Users/challagandlp/.helm
+Creating /Users/challagandlp/.helm/repository
+Creating /Users/challagandlp/.helm/repository/cache
+Creating /Users/challagandlp/.helm/repository/local
+Creating /Users/challagandlp/.helm/plugins
+Creating /Users/challagandlp/.helm/starters
+Creating /Users/challagandlp/.helm/cache/archive
+Creating /Users/challagandlp/.helm/repository/repositories.yaml
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com
+Adding local repo with URL: http://127.0.0.1:8879/charts
+$HELM_HOME has been configured at /Users/challagandlp/.helm.
+
+Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
+
+Please note: by default, Tiller is deployed with an insecure 'allow unauthenticated users' policy.
+To prevent this, run `helm init` with the --tiller-tls-verify flag.
+For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation

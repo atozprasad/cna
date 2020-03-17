@@ -1,0 +1,13 @@
+kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.8.1/manifests/metallb.yaml
+#namespace/metallb-system created
+#podsecuritypolicy.policy/speaker created
+#serviceaccount/controller created
+#serviceaccount/speaker created
+#clusterrole.rbac.authorization.k8s.io/metallb-system:controller created
+#clusterrole.rbac.authorization.k8s.io/metallb-system:speaker created
+#role.rbac.authorization.k8s.io/config-watcher created
+#clusterrolebinding.rbac.authorization.k8s.io/metallb-system:controller created
+#clusterrolebinding.rbac.authorization.k8s.io/metallb-system:speaker created
+#rolebinding.rbac.authorization.k8s.io/config-watcher created
+#daemonset.apps/speaker created
+#deployment.apps/controller created
