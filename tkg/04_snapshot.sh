@@ -1,4 +1,6 @@
 #!/bin/bash
+
+source govc-config.sh
  govc snapshot.create -vm photon-3-v1.17.3+vmware.1 root
  govc vm.markastemplate photon-3-v1.17.3+vmware.1
  

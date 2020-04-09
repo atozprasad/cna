@@ -2,21 +2,19 @@
 # govc pool.create /datacenter/host/compute-cluster-3/Resources/tkg
  
 # cat ~/.bash_profile
-export GOVC_URL='vcenter.psl.local'
-export GOVC_USERNAME='administrator@psl.local'
-export GOVC_PASSWORD='VMware1!challagandla'
-export GOVC_DATACENTER='sofialab'
-export GOVC_NETWORK='VM Network'
-export GOVC_DATASTORE='NFS'
-#export GOVC_RESOURCE_POOL='*/Resources'
-export GOVC_RESOURCE_POOL='/sofialab/host/NestedHosts/Resources'
-#'/sofialab/host/10.29.15.132/Resources'
-export GOVC_GUEST_LOGIN='kube:kube'
-export GOVC_INSECURE=1
-#export GOVC_RESOURCE_POOL='/sofialab/tkgresourcepool
+#export GOVC_URL='vcenter.psl.local'
+#export GOVC_USERNAME='administrator@psl.local'
+#export GOVC_PASSWORD='VMware1!challagandla'
+#export GOVC_DATACENTER='sofialab'
+#export GOVC_NETWORK='VM Network 2'
+#export GOVC_DATASTORE='LocalDatastore06'
+#export GOVC_RESOURCE_POOL='/sofialab/host/NestedHosts/Resources'
+#export GOVC_GUEST_LOGIN='kube:kube'
+#export GOVC_INSECURE=1
+source ./govc-config.sh
 #List all the RESROUCE POOLS
 govc pool.info */Resources | grep path
 #Create a resource pool
-govc pool.create $GOVC_RESOURCE_POOL/tkg 
+govc pool.create $GOVC_RESOURCE_POOL/tkgRC3 
 #Create a folder 
-govc folder.create $GOVC_DATACENTER/vm/tkg
+govc folder.create $VMFOLDER
