@@ -1,0 +1,15 @@
+git rm   ../../+
+git rm ../../../config.yaml
+git rm ../../../providers/README.md
+git rm ../../../providers/bootstrap-kubeadm/v0.3.3/bootstrap-components.yaml
+git rm ../../../providers/cluster-api/v0.3.3/core-components.yaml
+git rm ../../../providers/config.yaml
+git rm ../../../providers/control-plane-kubeadm/v0.3.3/control-plane-components.yaml
+git rm ../../../providers/infrastructure-aws/v0.5.2/cluster-template-dev.yaml
+git rm ../../../providers/infrastructure-aws/v0.5.2/cluster-template-prod.yaml
+git rm ../../../providers/infrastructure-aws/v0.5.2/infrastructure-components.yaml
+git rm ../../../providers/infrastructure-tkg-service-vsphere/v1.0.0/cluster-template-dev.yaml
+git rm ../../../providers/infrastructure-tkg-service-vsphere/v1.0.0/cluster-template-prod.yaml
+git rm ../../../providers/infrastructure-vsphere/v0.6.3/cluster-template-dev.yaml
+git rm ../../../providers/infrastructure-vsphere/v0.6.3/cluster-template-prod.yaml
+git rm ../../../providers/infrastructure-vsphere/v0.6.3/infrastructure-components.yaml
