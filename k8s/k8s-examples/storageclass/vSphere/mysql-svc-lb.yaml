@@ -12,7 +12,9 @@ spec:
   - port: 3306
   selector:
     app: mysql
-  type: LoadBalancer
+  clusterIP: None
+  type: ClusterIP
+#LoadBalancer
 
 
 #apiVersion: v1
