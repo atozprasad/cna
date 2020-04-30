@@ -10,7 +10,10 @@ export GOVC_DATASTORE='NFS'
 #export GOVC_RESOURCE_POOL='*/Resources'
 export GOVC_RESOURCE_POOL='/sofialab/host/mgmtcluster/Resources'
 #'/sofialab/host/10.29.15.132/Resources'
-export TKGVMFOLDER="/$GOVC_DATACENTER/vm/tkgrc3"
+export TKGVMFOLDER="/$GOVC_DATACENTER/vm/tkgtsm"
 export GOVC_GUEST_LOGIN='kube:kube'
 export GOVC_INSECURE=1
+export NODE_NETWORK="VM Network 2"
+export PHOTON="photon-3-v1.17.3_vmware.2"
+export HAPROXY="photon-3-capv-haproxy-v0.6.3_vmware.1"
 
