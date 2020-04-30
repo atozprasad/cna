@@ -12,7 +12,7 @@ export GOVC_DATASTORE="NFS"
 export NODE_NETWORK="VM Network 2"
 export PHOTON="photon-3-v1.17.3_vmware.2"
 export HAPROXY="photon-3-capv-haproxy-v0.6.3_vmware.1"
-export DEPLOYMENT_NAME="tkgtsm"
+export DEPLOYMENT_NAME="tkg"
 export GOVC_RESOURCE_POOL="/sofialab/host/mgmtcluster/Resources/$DEPLOYMENT_NAME"
 export TKGVMFOLDER="/$GOVC_DATACENTER/vm//$DEPLOYMENT_NAME"
 
