@@ -1,0 +1,48 @@
+KUBERNETES_VERSION: v1.17.3+vmware.2
+overridesFolder: /home/administrator/.tkg/overrides
+providers:
+  - name: cluster-api
+    url: /home/administrator/.tkg/providers/cluster-api/v0.3.3/core-components.yaml
+    type: CoreProvider
+  - name: aws
+    url: /home/administrator/.tkg/providers/infrastructure-aws/v0.5.2/infrastructure-components.yaml
+    type: InfrastructureProvider
+  - name: vsphere
+    url: /home/administrator/.tkg/providers/infrastructure-vsphere/v0.6.3/infrastructure-components.yaml
+    type: InfrastructureProvider
+  - name: tkg-service-vsphere
+    url: /home/administrator/.tkg/providers/infrastructure-tkg-service-vsphere/v1.0.0/unused.yaml
+    type: InfrastructureProvider
+  - name: kubeadm
+    url: /home/administrator/.tkg/providers/bootstrap-kubeadm/v0.3.3/bootstrap-components.yaml
+    type: BootstrapProvider
+  - name: kubeadm
+    url: /home/administrator/.tkg/providers/control-plane-kubeadm/v0.3.3/control-plane-components.yaml
+    type: ControlPlaneProvider
+images:
+    cert-manager:
+        repository: registry.tkg.vmware.run/cert-manager
+        tag: v0.11.0_vmware.1
+VSPHERE_SSH_AUTHORIZED_KEY: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIbR/1IAH1zX1cB52BWA9zqdPr+VVuyRgzR2fZ4GF5IoAVhNzdtu8KQqedmRk635UVXp33ShkKtnYnroQiTv3WflQk+9V5LAFcGstq5cbnNxyXAVJS6JP2y9okJOXax9dicXyHp0GSypdxeP0X39Wy6vBW8+R/33NR0nurvbhwCugBd5mRaBZQPkoXtouISEjK8fYRFFEDv0K3DVJw4iei/dwnrO/OM1FhxI6IuyfHVEFI+fKnZJvZWwWMokexNd3X6mn+lMPPDP6zwTeVFBPub51RDKRglAbGci0cc33hd8/8080zN6BZ+mOOZIK68YmAaJxkZReiT01RcQeSwOOZ
+    administrator@playground
+VSPHERE_USERNAME: administrator@psl.local
+VSPHERE_NETWORK: VM Network 2
+VSPHERE_MEM_MIB: "4096"
+VSPHERE_TEMPLATE: /sofialab/vm/tkgrc3/photon-3-v1.17.3_vmware.2
+VSPHERE_NUM_CPUS: "2"
+VSPHERE_RESOURCE_POOL: /sofialab/host/mgmtcluster/Resources/tkgRC3
+VSPHERE_FOLDER: /sofialab/vm/tkgrc3
+SERVICE_CIDR: 100.64.0.0/13
+VSPHERE_HAPROXY_TEMPLATE: /sofialab/vm/tkgrc3/photon-3-capv-haproxy-v0.6.3_vmware.1
+VSPHERE_SERVER: 10.29.15.135
+VSPHERE_DATACENTER: /sofialab
+VSPHERE_DISK_GIB: "20"
+CLUSTER_CIDR: 100.96.0.0/11
+VSPHERE_PASSWORD: <encoded:Vk13YXJlMSFjaGFsbGFnYW5kbGE=>
+VSPHERE_DATASTORE: /sofialab/datastore/NFS
+tkg:
+    regions:
+      - name: tkgtsm-mgmt
+        context: tkgtsm-mgmt-admin@tkgdevsmall
+        file: /home/administrator/.kube/config
+    current-region-context: tkgtsm-mgmt-admin@tkgdevsmall

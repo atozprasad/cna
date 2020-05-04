@@ -1,0 +1,25 @@
+KUBERNETES_VERSION: v1.17.3+vmware.2
+overridesFolder: /home/administrator/.tkg/overrides
+providers:
+  - name: cluster-api
+    url: /home/administrator/.tkg/providers/cluster-api/v0.3.3/core-components.yaml
+    type: CoreProvider
+  - name: aws
+    url: /home/administrator/.tkg/providers/infrastructure-aws/v0.5.2/infrastructure-components.yaml
+    type: InfrastructureProvider
+  - name: vsphere
+    url: /home/administrator/.tkg/providers/infrastructure-vsphere/v0.6.3/infrastructure-components.yaml
+    type: InfrastructureProvider
+  - name: tkg-service-vsphere
+    url: /home/administrator/.tkg/providers/infrastructure-tkg-service-vsphere/v1.0.0/unused.yaml
+    type: InfrastructureProvider
+  - name: kubeadm
+    url: /home/administrator/.tkg/providers/bootstrap-kubeadm/v0.3.3/bootstrap-components.yaml
+    type: BootstrapProvider
+  - name: kubeadm
+    url: /home/administrator/.tkg/providers/control-plane-kubeadm/v0.3.3/control-plane-components.yaml
+    type: ControlPlaneProvider
+images:
+    cert-manager:
+        repository: registry.tkg.vmware.run/cert-manager
+        tag: v0.11.0_vmware.1
