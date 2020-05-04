@@ -42,8 +42,8 @@ VSPHERE_PASSWORD: <encoded:Vk13YXJlMSFjaGFsbGFnYW5kbGE=>
 VSPHERE_DATASTORE: /sofialab/datastore/NFS
 tkg:
     regions:
-      - name: tkgtsm-mgmt
-        context: tkgtsm-mgmt-admin@tkgdevsmall
+      - name: tkgdevsmall
+        context: tkgdevsmall-admin@tkgdevsmall
         file: /home/administrator/.kube/config
       - name: tkgtsm-mgmt
         context: tkgtsm-mgmt-admin@tkgtsm-mgmt
