@@ -13,17 +13,22 @@ echo -e "\n Apply a virtual service"
 read
 cat samples/bookinfo/networking/virtual-service-all-v1.yaml
 read
+echo -e "\nkubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml"
+
 kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
 read
 echo -e "\n NextStep..." 
 
 echo -e "\n Lets check the virtual service object"
+echo -e "\n kubectl get virtualservices -o yaml"
 echo -e "kubectl get virtualservices -o yaml"
+echo -e "\n kubectl get virtualservices -o yaml"
 kubectl get virtualservices -o yaml
 read
 echo -e "\n NextStep..." 
 
 echo -e "\n And its subsets"
+echo -e "\n kubectl get destinationrules -o yaml"
 kubectl get destinationrules -o yaml
 read
 echo -e "\n NextStep..." 
@@ -46,9 +51,7 @@ echo -e "\n Open the Bookinfo site in your browser. The URL is"
 echo -e "http://$GATEWAY_URL/productpage"
 read
 
-echo -e "\n Remove the application virtual services:"
-kubectl delete -f samples/bookinfo/networking/virtual-service-all-v1.yaml
-read
+
 
 echo -e "\n On the /productpage of the Bookinfo app, log in as user jason. \n
 Refresh the browser. What do you see? The star ratings appear next to each review. \n
@@ -60,4 +63,7 @@ echo -e "\n\n\n In this task, you used Istio to send 100% of the traffic to the 
 
 
 figlet "Done, Usecase: Istio-setup " 
+echo -e "\n Remove the application virtual services:"
+echo -e "\nkubectl delete -f samples/bookinfo/networking/virtual-service-all-v1.yaml"
+kubectl delete -f samples/bookinfo/networking/virtual-service-all-v1.yaml
 
