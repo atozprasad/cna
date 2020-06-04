@@ -18,6 +18,7 @@ read
 echo -e "\n NextStep..." 
 
 echo -e "\n Lets check the virtual service object"
+echo -e "kubectl get virtualservices -o yaml"
 kubectl get virtualservices -o yaml
 read
 echo -e "\n NextStep..." 
