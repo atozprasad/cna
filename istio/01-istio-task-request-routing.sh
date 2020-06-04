@@ -52,18 +52,17 @@ echo -e "http://$GATEWAY_URL/productpage"
 read
 
 
-
 echo -e "\n On the /productpage of the Bookinfo app, log in as user jason. \n
 Refresh the browser. What do you see? The star ratings appear next to each review. \n
 Log in as another user (pick any name you wish). \n
 Refresh the browser. Now the stars are gone. This is because traffic is routed to reviews:v1 for all users except Jason."
-
+read
 figlet "Whats happening!"
 echo -e "\n\n\n In this task, you used Istio to send 100% of the traffic to the v1 version of each of the Bookinfo services. You then set a rule to selectively send traffic to version v2 of the reviews service based on a custom end-user header added to the request by the productpage service."
-
+read
 
 figlet "Done, Usecase: Istio-setup " 
-echo -e "\n Remove the application virtual services:"
-echo -e "\nkubectl delete -f samples/bookinfo/networking/virtual-service-all-v1.yaml"
-kubectl delete -f samples/bookinfo/networking/virtual-service-all-v1.yaml
+#echo -e "\n Remove the application virtual services:"
+#echo -e "\nkubectl delete -f samples/bookinfo/networking/virtual-service-all-v1.yaml"
+#kubectl delete -f samples/bookinfo/networking/virtual-service-all-v1.yaml
 
