@@ -64,18 +64,9 @@ echo -e "\n Set the ingress IP and ports: (enviornment variables"
 export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
 export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].port}')
-echo -e "\n Next Step..." 
-read
-
 # Set GATEWAY_URL:
 echo -e "\n Set GATEWAY_URL:"
 export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
-echo -e "\n Next Step..." 
-read
-
-
-# Ensure an IP address and port were successfully assigned to the environment variable:
-echo -e "\n Ensure an IP address and port were successfully assigned to the environment variable:"
 echo $GATEWAY_URL
 echo -e "\n Next Step..." 
 read
