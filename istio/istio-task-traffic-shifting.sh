@@ -13,6 +13,7 @@ read
 echo -e "\n Apply weight-based routing"
 read
 echo -e "\nAt first route all traffic to the v1 version of each microservice"
+read
 cat samples/bookinfo/networking/virtual-service-all-v1.yaml
 read
 kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
