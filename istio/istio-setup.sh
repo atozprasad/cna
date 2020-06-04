@@ -1,3 +1,5 @@
+DASHBOARD_IP=192.168.20.6
+
 # Download Istio and setpath
 echo -e "\n Download Istio and setpath"
 curl -L https://istio.io/downloadIstio | sh -
@@ -82,13 +84,12 @@ read
 
 # View the dashboard
 echo -e "\n View the dashboard"
-istioctl dashboard kiali
+echo -e "istioctl dashboard kiali --address 192.168.20.6 -p 30001"
+istioctl dashboard kiali --address $DASHBOARD_IP -p 30001
 echo -e "\n Next Step..." 
 read
 
 echo -e "\n Done with the Istio Setup demo..." 
-
-
 
 
 
