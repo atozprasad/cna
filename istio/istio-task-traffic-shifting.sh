@@ -16,6 +16,7 @@ echo -e "\nAt first route all traffic to the v1 version of each microservice"
 read
 cat samples/bookinfo/networking/virtual-service-all-v1.yaml
 read
+echo "kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml"
 kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
 echo -e "\n NextStep..." 
 read
