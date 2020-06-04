@@ -5,14 +5,16 @@ DASHBOARD_IP=192.168.20.6
 
 cd istio-1.6.0
 
-echo -e "\n Apply destination rules"
-read
-echo -e "\n "kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml"
-echo -e "\n "kubectl get destinationrules -o yaml"
+#echo -e "\n Apply destination rules"
+#read
+#echo -e "\n "kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml"
+#echo -e "\n "kubectl get destinationrules -o yaml"
+
 kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
+
 #kubectl apply -f samples/bookinfo/networking/destination-rule-all-mtls.yaml
-kubectl get destinationrules -o yaml
-read
+#kubectl get destinationrules -o yaml
+#read
 
 # Request routing use case
 figlet "Usecase-2 : Traffic Shifting"
