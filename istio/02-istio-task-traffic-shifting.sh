@@ -36,13 +36,9 @@ read
 echo -e "\nkubectl apply -f samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml"
 kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml
 read
-echo -e "\n NextStep..." ;read;clear
-
 echo -e "\n Confirm the rule was replaced:"
 kubectl get virtualservice reviews -o yaml
 read
-echo -e "\n NextStep..." ;read;clear
-
 echo -e "\n Refresh the /productpage in your browser and you now see red colored star ratings approximately 50% of the time. This is because the v3 version of reviews accesses the star ratings service, but the v1 version does not."
 # Setup environment variables for IngressIP and Port
 
