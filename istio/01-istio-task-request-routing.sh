@@ -6,6 +6,7 @@ cd istio-1.6.0
 
 
 # Request routing use case
+clear
 figlet "Usecase-1 : Request Routing"
 read
 
@@ -17,21 +18,19 @@ echo -e "\nkubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.y
 
 kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
 read
-echo -e "\n NextStep..." 
+echo -e "\n NextStep...";clear
 
 echo -e "\n Lets check the virtual service object"
 echo -e "\n kubectl get virtualservices -o yaml"
-echo -e "kubectl get virtualservices -o yaml"
-echo -e "\n kubectl get virtualservices -o yaml"
 kubectl get virtualservices -o yaml
 read
-echo -e "\n NextStep..." 
+echo -e "\n NextStep...";clear
 
 echo -e "\n And its subsets"
 echo -e "\n kubectl get destinationrules -o yaml"
 kubectl get destinationrules -o yaml
 read
-echo -e "\n NextStep..." 
+echo -e "\n NextStep...";clear
 read
 
 # Setup environment variables for IngressIP and Port
@@ -43,7 +42,7 @@ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressga
 echo -e "\n Set GATEWAY_URL:"
 export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 echo $GATEWAY_URL
-echo -e "\n Next Step..." 
+echo -e "\n NextStep...";clear
 read
 
 echo -e "\n Test the new routing configuration"
