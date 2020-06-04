@@ -5,10 +5,10 @@ DASHBOARD_IP=192.168.20.6
 
 cd istio-1.6.0
 
-echio "Apply destination rules"
+echo -e "\n "Apply destination rules"
 read
-echo "kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml"
-echo "kubectl get destinationrules -o yaml"
+echo -e "\n "kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml"
+echo -e "\n "kubectl get destinationrules -o yaml"
 kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
 #kubectl apply -f samples/bookinfo/networking/destination-rule-all-mtls.yaml
 kubectl get destinationrules -o yaml
@@ -26,8 +26,7 @@ cat samples/bookinfo/networking/virtual-service-all-v1.yaml
 read
 echo "kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml"
 kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
-echo -e "\n NextStep..." 
-read
+echo -e "\n NextStep..." ;read;clear
 
 echo -e "\n Transfer 50% of the traffic from reviews:v1 to reviews:v3"
 cat  samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml
@@ -35,13 +34,12 @@ read
 echo -e "\nkubectl apply -f samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml"
 kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-50-v3.yaml
 read
-echo -e "\n NextStep..." 
-
+echo -e "\n NextStep..." ;read;clear
 
 echo -e "\n Confirm the rule was replaced:"
 kubectl get virtualservice reviews -o yaml
 read
-echo -e "\n NextStep..." 
+echo -e "\n NextStep..." ;read;clear
 
 echo -e "\n Refresh the /productpage in your browser and you now see red colored star ratings approximately 50% of the time. This is because the v3 version of reviews accesses the star ratings service, but the v1 version does not."
 # Setup environment variables for IngressIP and Port
@@ -53,15 +51,17 @@ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressga
 echo -e "\n Set GATEWAY_URL:"
 export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 echo $GATEWAY_URL
-echo -e "\n Next Step..." 
-read
+echo -e "\n NextStep..." ;read;clear
+
+
 echo -e "\n Open the Bookinfo site in your browser. The URL is"
 echo -e "http://$GATEWAY_URL/productpage"
 read
  read
-echo -e "\n NextStep..." 
+echo -e "\n NextStep..." ;read;clear
 
 echo -e "\n Lets shift all 100% of the traffic to reviews:v3 by applying this virtual service:"
+echo -e "\n cat samples/bookinfo/networking/virtual-service-reviews-v3.yaml"
 cat samples/bookinfo/networking/virtual-service-reviews-v3.yaml
 read
 echo -e "\nkubectl apply -f samples/bookinfo/networking/virtual-service-reviews-v3.yaml"
@@ -72,22 +72,10 @@ read
 
 echo -e "\nWhat happend!"
 echo -e "\n In this task you migrated traffic from an old to new version of the reviews service using Istio’s weighted routing feature. Note that this is very different than doing version migration using the deployment features of container orchestration platforms, which use instance scaling to manage the traffic."
+echo -e "\n With Istio, you can allow the two versions of the reviews service to scale up and down independently, without affecting the traffic distribution between them."
 
 
-echo -e "\n Remove the application virtual services:"
-kubectl delete -f samples/bookinfo/networking/virtual-service-all-v1.yaml
-read
-
-echo -e "\n On the /productpage of the Bookinfo app, log in as user jason. \n
-Refresh the browser. What do you see? The star ratings appear next to each review. \n
-Log in as another user (pick any name you wish). \n
-Refresh the browser. Now the stars are gone. This is because traffic is routed to reviews:v1 for all users except Jason."
-
-figlet "Whats happening!"
-echo -e "\n\n\n In this task, you used Istio to send 100% of the traffic to the v1 version of each of the Bookinfo services. You then set a rule to selectively send traffic to version v2 of the reviews service based on a custom end-user header added to the request by the productpage service."
-
-
-figlet "Done, Usecase: Istio-setup " 
+figlet "Done, Usecase02: istio-task-traffic-shifting " 
 #echo -e "\n Remove the application virtual services:"
 #echo -e "\nkubectl delete -f samples/bookinfo/networking/virtual-service-all-v1.yaml"
 #kubectl delete -f samples/bookinfo/networking/virtual-service-all-v1.yaml
