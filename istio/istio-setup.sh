@@ -29,6 +29,7 @@ read
 # Lets add Ingressgateway, to Open the application to outside traffic
 # Associate this application with the Istio gateway:
 echo -e "\n Associate this application with the Istio gateway "
+cat samples/bookinfo/networking/bookinfo-gateway.yaml
 kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 echo -e "\n Next Step..." 
 read
