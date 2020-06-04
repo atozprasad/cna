@@ -3,6 +3,9 @@
 
 DASHBOARD_IP=192.168.20.6
 
+cd istio-1.6.0
+
+
 # Request routing use case
 figlet "Usecase-1 : Request Routing"
 
