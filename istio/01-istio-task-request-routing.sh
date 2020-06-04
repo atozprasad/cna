@@ -45,12 +45,21 @@ echo -e "\n Open the Bookinfo site in your browser. The URL is"
 echo -e "http://$GATEWAY_URL/productpage"
 read
 
-
+figlet "Route based on user identity"
+echo -e "\n Next, you will change the route configuration so that all traffic from a specific user is routed to a specific service version. In this case, all traffic from a user named Jason will be routed to the service reviews:v2."
+echo -e "\nkubectl apply -f samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml"
+read
+kubectl apply -f samples/bookinfo/networking/virtual-service-reviews-test-v2.yaml
+echo -e "\n Lets check the rule creation"
+echo -e "\n kubectl get virtualservice reviews -o yaml"
+kubectl get virtualservice reviews -o yaml
+read
 echo -e "\n On the /productpage of the Bookinfo app, log in as user jason. \n
 Refresh the browser. What do you see? The star ratings appear next to each review. \n
 Log in as another user (pick any name you wish). \n
 Refresh the browser. Now the stars are gone. This is because traffic is routed to reviews:v1 for all users except Jason."
 read
+
 figlet "Whats happening!"
 echo -e "\n\n\n In this task, you used Istio to send 100% of the traffic to the v1 version of each of the Bookinfo services. You then set a rule to selectively send traffic to version v2 of the reviews service based on a custom end-user header added to the request by the productpage service."
 read
