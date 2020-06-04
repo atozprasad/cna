@@ -27,6 +27,7 @@ read
 echo -e "\n NextStep...";clear
 
 echo -e "\n And its subsets"
+read
 echo -e "\n kubectl get destinationrules -o yaml"
 kubectl get destinationrules -o yaml
 read
