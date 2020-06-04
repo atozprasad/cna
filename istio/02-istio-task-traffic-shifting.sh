@@ -43,21 +43,15 @@ echo -e "\n NextStep..." ;read;clear
 
 echo -e "\n Refresh the /productpage in your browser and you now see red colored star ratings approximately 50% of the time. This is because the v3 version of reviews accesses the star ratings service, but the v1 version does not."
 # Setup environment variables for IngressIP and Port
-echo -e "\n Set the ingress IP and ports: (enviornment variables"
+
 export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
 export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].port}')
 # Set GATEWAY_URL:
-echo -e "\n Set GATEWAY_URL:"
 export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
-echo $GATEWAY_URL
-echo -e "\n NextStep..." ;read;clear
-
-
 echo -e "\n Open the Bookinfo site in your browser. The URL is"
 echo -e "http://$GATEWAY_URL/productpage"
 read
- read
 echo -e "\n NextStep..." ;read;clear
 
 echo -e "\n Lets shift all 100% of the traffic to reviews:v3 by applying this virtual service:"
