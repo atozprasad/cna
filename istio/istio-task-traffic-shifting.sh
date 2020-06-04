@@ -7,7 +7,7 @@ cd istio-1.6.0
 
 
 # Request routing use case
-figlet "Usecase-1 : Traffic Shifting"
+figlet "Usecase-2 : Traffic Shifting"
 read
 
 echo -e "\n Apply weight-based routing"
