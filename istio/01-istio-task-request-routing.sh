@@ -1,5 +1,4 @@
 #!/bin/bash
-#set -x #echo on
 
 DASHBOARD_IP=192.168.20.6
 
