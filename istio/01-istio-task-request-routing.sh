@@ -15,24 +15,19 @@ read
 cat samples/bookinfo/networking/virtual-service-all-v1.yaml
 read
 echo -e "\nkubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml"
-
 kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
-read
-echo -e "\n NextStep...";clear
+echo -e "\n NextStep...";read;clear
 
 echo -e "\n Lets check the virtual service object"
 echo -e "\n kubectl get virtualservices -o yaml"
 kubectl get virtualservices -o yaml
-read
-echo -e "\n NextStep...";clear
+echo -e "\n NextStep...";read;clear
 
 echo -e "\n And its subsets"
 read
 echo -e "\n kubectl get destinationrules -o yaml"
 kubectl get destinationrules -o yaml
-read
-echo -e "\n NextStep...";clear
-read
+echo -e "\n NextStep...";read;clear
 
 # Setup environment variables for IngressIP and Port
 echo -e "\n Set the ingress IP and ports: (enviornment variables"
@@ -43,8 +38,7 @@ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressga
 echo -e "\n Set GATEWAY_URL:"
 export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 echo $GATEWAY_URL
-echo -e "\n NextStep...";clear
-read
+echo -e "\n NextStep...";read;clear 
 
 echo -e "\n Test the new routing configuration"
 echo -e "\n Open the Bookinfo site in your browser. The URL is"
