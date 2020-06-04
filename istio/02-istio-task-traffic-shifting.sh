@@ -88,3 +88,6 @@ echo -e "\n\n\n In this task, you used Istio to send 100% of the traffic to the 
 
 
 figlet "Done, Usecase: Istio-setup " 
+echo -e "\n Remove the application virtual services:"
+echo -e "\nkubectl delete -f samples/bookinfo/networking/virtual-service-all-v1.yaml"
+kubectl delete -f samples/bookinfo/networking/virtual-service-all-v1.yaml
