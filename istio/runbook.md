@@ -4,7 +4,7 @@ command line runbook for quick reference
 
 ## Installation
 
-# Download ISTIO bits
+### Download ISTIO bits
 ```bash
 curl -L https://istio.io/downloadIstio | sh -
 
