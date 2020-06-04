@@ -64,7 +64,7 @@ figlet "Whats happening!"
 echo -e "\n\n\n In this task, you used Istio to send 100% of the traffic to the v1 version of each of the Bookinfo services. You then set a rule to selectively send traffic to version v2 of the reviews service based on a custom end-user header added to the request by the productpage service."
 read
 
-figlet "Done, Usecase: Istio-setup " 
+figlet "Done, Usecase01: istio-task-request-routing " 
 #echo -e "\n Remove the application virtual services:"
 #echo -e "\nkubectl delete -f samples/bookinfo/networking/virtual-service-all-v1.yaml"
 #kubectl delete -f samples/bookinfo/networking/virtual-service-all-v1.yaml
