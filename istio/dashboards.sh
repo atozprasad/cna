@@ -1,3 +1,4 @@
+#!/bin/bash
 DASHBOARD_IP=192.168.20.6
 
 sudo sysctl -w net.ipv4.conf.ens160.route_localnet=1
