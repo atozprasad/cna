@@ -9,21 +9,20 @@ echo -e "\n Download Istio and setpath"
 curl -L https://istio.io/downloadIstio | sh -
 cd istio-1.6.0
 export PATH=$PWD/bin:$PATH
-echo -e "\n Next Step..." 
-read
+echo -e "\n Next Step..." ;read;clear
 
 # install Istio
 echo -e "\n install Istio"
 istioctl install --set profile=demo
 kubectl label namespace default istio-injection=enabled
-echo -e "\n Next Step..." 
+echo -e "\n Next Step..." ;read;clear
 read
 
 # Deploy sample application
 echo -e "\n Deploy sample application"
 kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
 watch kubectl get services,pods
-echo -e "\n Next Step..." 
+echo -e "\n Next Step..." ;read;clear
 read
 
 # Verfiy the things so far...
@@ -37,27 +36,27 @@ read
 echo -e "\n Associate this application with the Istio gateway "
 cat samples/bookinfo/networking/bookinfo-gateway.yaml
 kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
-echo -e "\n Next Step..." 
+echo -e "\n Next Step..." ;read;clear
 read
 
 # Ensure that there are no issues with the configuration:
 echo -e "\n Ensure that there are no issues with the configuration "
 istioctl analyze
-echo -e "\n Next Step..." 
+echo -e "\n Next Step..." ;read;clear
 read
 
 # Determining the ingress IP and ports
 echo -e "\n Determining the ingress IP and ports "
+echo -e "\n kubectl get svc istio-ingressgateway -n istio-system"
 kubectl get svc istio-ingressgateway -n istio-system
-echo -e "\n Next Step..." 
-read
+echo -e "\n Next Step...";read;clear
 
 
 # Lets Verify all resources for the sample app
 echo -e "\n Lets Verify all resources for the sample app"
+echo -e "\n kubectl get virtualservices,destinationrules,gateway,pods"
 kubectl get virtualservices,destinationrules,gateway,pods
-echo -e "\n Next Step..." 
-read
+echo -e "\n Next Step...";read;clear
 
 # Setup environment variables for IngressIP and Port
 echo -e "\n Set the ingress IP and ports: (enviornment variables"
@@ -68,22 +67,22 @@ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressga
 echo -e "\n Set GATEWAY_URL:"
 export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 echo $GATEWAY_URL
-echo -e "\n Next Step..." 
-read
+echo -e "\n Next Step...";read;clear
+
 
 # Verify external access
 echo -e "\n Verify external access"
 echo http://$GATEWAY_URL/productpage
-echo -e "\n Next Step..." 
-read
+echo -e "\n Next Step...";read;clear
+
 
 # View the dashboard
 echo -e "\n View the dashboard"
+echo -e "\n istioctl dashboard kiali --address $DASHBOARD_IP -p 30001"
 istioctl dashboard kiali --address $DASHBOARD_IP -p 30001
-echo -e "\n Next Step..." 
-read
+echo -e "\n Next Step...";read;clear
 
-figlet "Done, Usecase: Istio-setup " 
+figlet "Done,Istio-setup " 
 
 
 
