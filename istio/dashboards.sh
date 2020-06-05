@@ -2,8 +2,8 @@
 DASHBOARD_IP=192.168.20.6
 
 sudo sysctl -w net.ipv4.conf.ens160.route_localnet=1
-#sudo iptables -t nat -I PREROUTING -p tcp -i ens160 --dport 30001 -j DNAT --to-destination 127.0.0.1:30001
-#sudo iptables -t nat -A OUTPUT -o ens160 -p tcp -m tcp --dport 30001 -j DNAT --to-destination 127.0.0.1:30001
+sudo iptables -t nat -I PREROUTING -p tcp -i ens160 --dport 30001 -j DNAT --to-destination 127.0.0.1:30001
+sudo iptables -t nat -A OUTPUT -o ens160 -p tcp -m tcp --dport 30001 -j DNAT --to-destination 127.0.0.1:30001
 #sudo iptables -t nat -I PREROUTING -p tcp -i ens160 --dport 30002 -j DNAT --to-destination 127.0.0.1:30002
 #sudo iptables -t nat -A OUTPUT -o ens160 -p tcp -m tcp --dport 30002 -j DNAT --to-destination 127.0.0.1:30002
 #sudo iptables -t nat -I PREROUTING -p tcp -i ens160 --dport 30003 -j DNAT --to-destination 127.0.0.1:30003
