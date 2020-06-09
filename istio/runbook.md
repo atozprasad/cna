@@ -33,7 +33,9 @@ istioctl install --set profile=demo
 Add a namespace label to instruct Istio to automatically inject Envoy sidecar proxies when you deploy your application later:
 
 ```bash
+echo -e "\n kubectl label namespace default istio-injection=enabled"
 kubectl label namespace default istio-injection=enabled
+echo -
 
 ```
 ## Deploy the sample application
