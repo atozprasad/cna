@@ -31,7 +31,8 @@ spec:
           servicePort: 8080
 
 ##### Name or host based virtual hosting
-###The following Ingress tells the backing load balancer to route requests based on the Host header.
+###The following Ingress tells the backing load balancer 
+###to route requests based on the Host header.
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
