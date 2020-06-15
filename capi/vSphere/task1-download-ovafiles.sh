@@ -1,15 +1,7 @@
 #!/bin/bash
 figlet "Download OVA file"
 #Download bits
-IMAGERPO="https://storage.googleapis.com/capv-images"
-K8SVERSION="v1.18.2"
-HAPVERSION="v1.2.4"
-K8SBASE="ubuntu-1804"
-HAPBASE="photon-3"
-K8SIMAGE=${K8SBASE}"-kube-"${K8SVERSION}""
-HAPIMAGE=${HAPBASE}"-haproxy-${HAPVERSION}"
-
-
+source govc-config.sh
 
 rm *.ova
 echo -e "\n Listout images available for K8S V1.18 "
