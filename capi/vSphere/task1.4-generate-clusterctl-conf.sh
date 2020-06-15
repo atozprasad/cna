@@ -1,6 +1,7 @@
 #!/bin/bash
 source govc-config.sh
 
+figlet "Generate clusterctl.yaml"
 ## -- Controller settings -- ##
 echo "" > clusterctl.yaml
 echo "VSPHERE_USERNAME: \"$GOVC_USERNAME\""   >> clusterctl.yaml                 # The username used to access the remote vSphere endpoint
@@ -18,3 +19,6 @@ echo "VSPHERE_SSH_AUTHORIZED_KEY: \"$VSPHERE_SSH_AUTHORIZED_KEY\"" >> clusterctl
                                                               #   in this cluster.
                                                               #   Set to "" if you don't want to enable SSH,
                                                               #   or are using another solution.
+
+cat clusterctl.yaml
+figlet "Done with this task"
