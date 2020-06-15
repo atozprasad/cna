@@ -6,8 +6,8 @@ K8SVERSION="v1.18.2"
 HAPVERSION="v1.2.4"
 K8SBASE="ubuntu-1804"
 HAPBASE="photon-3"
-K8SIMAGE=${K8SBASE}"-kube-"${K8SVERSION}".ova"
-HAPIMAGE=${HAPBASE}"-haproxy-${HAPVERSION}.ova"
+K8SIMAGE=${K8SBASE}"-kube-"${K8SVERSION}""
+HAPIMAGE=${HAPBASE}"-haproxy-${HAPVERSION}"
 
 
 
@@ -18,17 +18,15 @@ gsutil ls gs://capv-images/release/${K8SVERSION}/*
 echo -e "\n Listout images available for HAProxy "
 gsutil ls gs://capv-images/extra/haproxy/release/${HAPVERSION}/*.{ova,sha256} | sed 's~^gs://~http://storage.googleapis.com/~'
 echo -e "\n Downloading K8S Bits for ManagementCluster"
-echo "wget ${IMAGERPO}/"release"/${K8SVERSION}/${K8SIMAGE}"
-read
-wget ${IMAGERPO}/"release"/${K8SVERSION}/${K8SIMAGE}
+echo "wget ${IMAGERPO}/"release"/${K8SVERSION}/${K8SIMAGE}.ova"
+wget ${IMAGERPO}/"release"/${K8SVERSION}/${K8SIMAGE}.ova
 echo -e "\n Downloading HAProxy  Bits for ManagementCluster"
-echo -e  "\n wget ${IMAGERPO}/"extra/haproxy/release"/${HAPVERSION}/${HAPIMAGE}"
-wget ${IMAGERPO}/"extra/haproxy/release"/${HAPVERSION}/${HAPIMAGE}
+echo -e  "\n wget ${IMAGERPO}/"extra/haproxy/release"/${HAPVERSION}/${HAPIMAGE}.ova"
+wget ${IMAGERPO}/"extra/haproxy/release"/${HAPVERSION}/${HAPIMAGE}.ova
 
 
 #echo -e "\n Build OVA "
 #cd cluster-api-provider-vsphere/
 #
 #git clone https://github.com/kubernetes-sigs/cluster-api-provider-vsphere.git
-echo -e "\n NextStep...";read;clear
 figlet "Done with this Task"
