@@ -1,0 +1,18 @@
+## -- Controller settings -- ##
+VSPHERE_USERNAME: "administrator@psl.local"                    # The username used to access the remote vSphere endpoint
+VSPHERE_PASSWORD: "VMware1!challagandla"                                  # The password used to access the remote vSphere endpoint
+
+## -- Required workload cluster default settings -- ##
+VSPHERE_SERVER: "vcenter.psl.local"                                    # The vCenter server IP or FQDN
+VSPHERE_DATACENTER: "sofialab"                         # The vSphere datacenter to deploy the management cluster on
+VSPHERE_DATASTORE: "NFS"                         # The vSphere datastore to deploy the management cluster on
+VSPHERE_NETWORK: "VM Network 2"                                 # The VM network to deploy the management cluster on
+VSPHERE_RESOURCE_POOL: "/sofialab/host/mgmtcluster/Resources/capi"                          # The vSphere resource pool for your VMs
+VSPHERE_FOLDER: "sofialab/vm/capi"                                          # The VM folder for your VMs. Set to "" to use the root vSphere folder
+VSPHERE_TEMPLATE: "ubuntu-1804-kube-v1.18.2"                  # The VM template to use for your management cluster.
+VSPHERE_HAPROXY_TEMPLATE: "/photon-3-haproxy-v1.2.4"  # The VM template to use for the HAProxy load balancer
+VSPHERE_SSH_AUTHORIZED_KEY: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIbR/1IAH1zX1cB52BWA9zqdPr+VVuyRgzR2fZ4GF5IoAVhNzdtu8KQqedmRk635UVXp33ShkKtnYnroQiTv3WflQk+9V5LAFcGstq5cbnNxyXAVJS6JP2y9okJOXax9dicXyHp0GSypdxeP0X39Wy6vBW8+R/33NR0nurvbhwCugBd5mRaBZQPkoXtouISEjK8fYRFFEDv0K3DVJw4iei/dwnrO/OM1FhxI6IuyfHVEFI+fKnZJvZWwWMokexNd3X6mn+lMPPDP6zwTeVFBPub51RDKRglAbGci0cc33hd8/8080zN6BZ+mOOZIK68YmAaJxkZReiT01RcQeSwOOZ administrator@playground"
+                                                              # The public ssh authorized key on all machines
+                                                              #   in this cluster.
+                                                              #   Set to "" if you don't want to enable SSH,
+                                                              #   or are using another solution.
