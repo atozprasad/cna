@@ -13,3 +13,5 @@ sudo mv ./clusterctl /usr/local/bin/clusterctl
 echo -e "\n Validate Clusterctl "
 clusterctl version
 figlet "Done with this task"
+echo -e "\n NextStep...";read;clear
+
