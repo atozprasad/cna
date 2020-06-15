@@ -10,3 +10,4 @@ kubectl cluster-info > ./kind-cluster.info
 
 
 figlet "Done with this task"
+echo -e "\n NextStep...";read;clear

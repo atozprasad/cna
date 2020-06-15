@@ -1,4 +1,5 @@
 #!/bin/bash
+figlet "Download OVA file"
 #Download bits
 IMAGERPO="https://storage.googleapis.com/capv-images"
 K8SVERSION="v1.18.2"
@@ -7,8 +8,8 @@ K8SBASE="ubuntu-1804"
 HAPBASE="photon-3"
 K8SIMAGE=${K8SBASE}"-kube-"${K8SVERSION}".ova"
 HAPIMAGE=${HAPBASE}"-haproxy-${HAPVERSION}.ova"
-echo 
-figlet "Download OVA file"
+
+
 
 rm *.ova
 echo -e "\n Listout images available for K8S V1.18 "
@@ -20,7 +21,6 @@ echo -e "\n Downloading K8S Bits for ManagementCluster"
 echo "wget ${IMAGERPO}/"release"/${K8SVERSION}/${K8SIMAGE}"
 read
 wget ${IMAGERPO}/"release"/${K8SVERSION}/${K8SIMAGE}
-
 echo -e "\n Downloading HAProxy  Bits for ManagementCluster"
 echo -e  "\n wget ${IMAGERPO}/"extra/haproxy/release"/${HAPVERSION}/${HAPIMAGE}"
 wget ${IMAGERPO}/"extra/haproxy/release"/${HAPVERSION}/${HAPIMAGE}
@@ -31,8 +31,4 @@ wget ${IMAGERPO}/"extra/haproxy/release"/${HAPVERSION}/${HAPIMAGE}
 #
 #git clone https://github.com/kubernetes-sigs/cluster-api-provider-vsphere.git
 echo -e "\n NextStep...";read;clear
-
-echo -e "\n setting govc environment variables"
-cat govc-config.sh
-source govc-config.sh
-
+figlet "Done with this Task"
