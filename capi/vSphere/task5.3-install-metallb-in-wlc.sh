@@ -2,7 +2,7 @@
 source wlc.env
 figlet "Deploy MetalLB loadbalancer"
 kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.8.1/manifests/metallb.yaml
-cat >> metallb-configmap.yaml <<EOF
+cat > metallb-configmap.yaml <<EOF
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -19,7 +19,7 @@ EOF
 echo  -e "\n Config for MetalLB"
 cat metallb-configmap.yaml
 kubectl apply -f metallb-configmap.yaml
-kubectl get  all -n metallb-system
+watch kubectl get  all -n metallb-system
 figlet "Done with the MetalLB installation"
 echo -e "\n NextStep...";read;clear
 
