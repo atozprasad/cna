@@ -12,6 +12,6 @@ sudo mv ./clusterctl /usr/local/bin/clusterctl
 #Test to ensure the version you installed is up-to-date:
 echo -e "\n Validate Clusterctl "
 clusterctl version
-figlet "Done with this task"
+figlet "Done with this step"
 echo -e "\n NextStep...";read;clear
 

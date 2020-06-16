@@ -1,13 +1,16 @@
 #!/bin/bash
+source wlc.env
 figlet "Get Workload Cluster kubeconfig"
+unset KUBECONFIG
+kubectl get secret/${WLC_CLUSTER_NAME}-kubeconfig -o json | jq -r .data.value | base64 --decode > ./${WLC_CLUSTER_NAME}.kubeconfig
 
-kubectl get secret/capi-wlc1-kubeconfig -o json \
-  | jq -r .data.value \
-  | base64 --decode \
-  > ./wlc1-cluster.kubeconfig
+ls ./${WLC_CLUSTER_NAME}.kubeconfig
 
-ls ./wlc1-cluster.kubeconfig
+echo "export KUBECONFIG=./${WLC_CLUSTER_NAME}.kubeconfig" >> wlc.env
+source wlc.env
+echo $KUBECONFIG
+echo -e "\n Switching KUBECONFIG to ${WLC_CLUSTER_NAME}.kubeconfig"
+kubectl get nodes
+echo -e "\n NextStep...";read;clear
 
-echo -e "\n kubectl --kubeconfig ./wlc1-cluster.kubeconfig get nodes"
- kubectl --kubeconfig ./wlc1-cluster.kubeconfig get nodes
 
