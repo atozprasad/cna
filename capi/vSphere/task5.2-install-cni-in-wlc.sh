@@ -1,9 +1,9 @@
 #!/bin/bash
 source wlc.env
 figlet "Install Calico CNI in Workload Cluster"
-echo -e "\n kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml"
+echo -e "\n kubectl apply -f ./cluster-services/calico.yaml"
 
-kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+kubectl apply -f "./cluster-services/calico.yaml"
 watch kubectl get nodes
 echo "watch kubectl get all -n kube-system"
 watch kubectl get all -n kube-system
