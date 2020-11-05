@@ -10,7 +10,8 @@ spec:
     image: gcr.io/kuar-demo/kuard-amd64:blue
     ports:
     - containerPort: 80
-    - key: disktype
-  operator: Equal
-  value: slow
-  effect: NoSchedule
+  tolerations:
+  - key: disktype
+    operator: Equal
+    value: slow
+    effect: NoSchedule
