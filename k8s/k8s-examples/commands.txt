@@ -24,3 +24,4 @@ kubectl get pods -n kube-system
 #kube-scheduler-master                      1/1     Running            0          15h
 #weave-net-8x5md                            2/2     Running            1          15h
 #weave-net-b7682                            2/2     Running            1          15h
+#kube-proxy-96c42                           1/1     Running            0          15h
