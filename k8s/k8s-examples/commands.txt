@@ -1,0 +1,2 @@
+# Get endpoints
+kubectl get endpoints <servicename>
