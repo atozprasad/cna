@@ -3,3 +3,6 @@ kubectl get endpoints <servicename>
 
 #Deploying a container (curl) imperatively  
 kubectl run curl --generator=run-pod/v1 --image=radial/busyboxplus:curl -n prodapps -i --tty --rm
+
+# accessing a service running on other namespace- Example here, accessing a service named 'webserver' running in the namespace 'prodapps'
+curl webserver.prodapps.svc.cluster.local
