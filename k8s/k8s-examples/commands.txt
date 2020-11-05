@@ -6,3 +6,21 @@ kubectl run curl --generator=run-pod/v1 --image=radial/busyboxplus:curl -n proda
 
 # accessing a service running on other namespace- Example here, accessing a service named 'webserver' running in the namespace 'prodapps'
 curl webserver.prodapps.svc.cluster.local
+
+# Check for pods in Kube-system 
+
+kubectl get pods -n kube-system
+
+#### Sample output
+#master $ kubectl get pods -n kube-system
+#NAME                                       READY   STATUS             RESTARTS   AGE
+#coredns-fb8b8dccf-bkzsx                    1/1     Running            0          15h
+#coredns-fb8b8dccf-h2zsq                    1/1     Running            0          15h
+#etcd-master                                1/1     Running            0          15h
+#katacoda-cloud-provider-5854d78779-ts7qf   0/1     CrashLoopBackOff   229        15h
+#kube-apiserver-master                      1/1     Running            0          15h
+#kube-controller-manager-master             1/1     Running            0          15h
+#kube-keepalived-vip-rngr5                  1/1     Running            0          15h
+#kube-scheduler-master                      1/1     Running            0          15h
+#weave-net-8x5md                            2/2     Running            1          15h
+#weave-net-b7682                            2/2     Running            1          15h
