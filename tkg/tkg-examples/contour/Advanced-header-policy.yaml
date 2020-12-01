@@ -1,0 +1,18 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: header-rewrite-example
+spec:
+  virtualhost:
+    fqdn: header.bar.com
+  routes:
+  - services:
+    - name: s1
+      port: 80
+    requestHeadersPolicy:
+      set:
+      - name: Host
+        value: external.dev
+      remove:
+      - Some-Header
+      - Some-Other-Header

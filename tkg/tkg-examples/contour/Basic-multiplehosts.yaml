@@ -1,0 +1,28 @@
+##### Host based ngle service Ingress Class - Multiple hosts
+##### Unlike k8singress, each objecgt can only host one host 
+##### Multihost-  must be represented by two different HTTPProxy objects:
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: name-example-foo
+  namespace: default
+spec:
+  virtualhost:
+    fqdn: foo1.bar.com
+  routes:
+    - services:
+      - name: s1
+        port: 80
+---
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: name-example-bar
+  namespace: default
+spec:
+  virtualhost:
+    fqdn: bar1.bar.com
+  routes:
+    - services:
+        - name: s2
+          port: 80
