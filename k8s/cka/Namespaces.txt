@@ -1,0 +1,50 @@
+1. Create Namespaces
+2. Delte Namespaces
+3. Manage Memory, CPU, and API Resources in a Namespaces
+3.1 LimitRange object
+---
+#Configure Default Memory Requests and Limits for a Namespace
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: mem-limit-range
+spec:
+  limits:
+  - default:
+      memory: 512Mi
+      cpu: 1
+    defaultRequest:
+      memory: 256Mi
+      cpu: 0.5
+    type: Container
+
+___
+# Configure Minimum and Maximum CPU Constraints for a Namespace
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: mem-min-max-demo-lr
+spec:
+  limits:
+  - max:
+      memory: 1Gi
+      cpu: "800m"
+    min:
+      memory: 500Mi
+      cpu: "200m"
+    type: Container
+
+3.2 ResourceQuota object
+---
+#Configure Memory, CPU and PODs Quotas for a Namespace
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: mem-cpu-demo
+spec:
+  hard:
+    requests.cpu: "1"
+    requests.memory: 1Gi
+    limits.cpu: "2"
+    limits.memory: 2Gi
+    pods: "2"
