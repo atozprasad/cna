@@ -10,6 +10,7 @@ apt-get install docker-ce
 adduser $USER
 usermod -aG docker $USER
 systemctl restart docker
+sudo chmod 666 /var/run/docker.sock
 su -s ${USER}
 docker run hello-world
 
