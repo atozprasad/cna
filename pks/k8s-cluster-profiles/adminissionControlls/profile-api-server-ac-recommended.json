@@ -1,0 +1,42 @@
+profile-api-server-ac-recommended.json
+{
+
+    "name": "profile-kube-apiserver-ac-recommended",
+
+    "description": "K8s profile for kube-apiserver",
+
+    "customizations": [
+
+    {
+
+        "component": "kube-apiserver", "arguments": {
+
+        "audit-log-maxsize": "1000",
+
+            "anonymous-auth": "false",
+
+        "enable-admission-plugins": "NamespaceLifecycle,LimitRanger,ServiceAccount,DefaultStorageClass,DefaultTolerationSeconds,MutatingAdmissionWebhook,ValidatingAdmissionWebhook,Priority,ResourceQuota,PodSecurityPolicy"
+
+        }
+
+    }
+
+    ],
+
+    "experimental_customizations": [
+
+        {
+
+        "component": "kubelet", "arguments": {
+
+        "maximum-dead-containers": "1000",
+
+        "feature-gates": "APIListChunking=true,AttachVolumeLimit=false"
+
+        }
+
+        }
+
+    ]
+
+}
