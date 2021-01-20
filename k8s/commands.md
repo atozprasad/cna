@@ -68,11 +68,12 @@ k run job1 \
     -- sh -c "sleep 1d" >> job1.yaml
 #### edit and copy the containers section from pod
 vim job1.yaml
-####Here you have to make sure that the Job template still contains 
+#### Here you have to make sure that the Job template still contains 
 restartPolicy: Never or restartPolicy: OnFailure.
 
 
-> ## Create CronJob YAML
+> 
+## Create CronJob YAML
 
 ### Simple
 k create cj cj1 -oyaml --dry-run=client --schedule="* * * * *" --image=busybox
