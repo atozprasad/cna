@@ -1,10 +1,9 @@
 # K8S quick commands
 
-
 Edit and indent in VIM
 First, write these in your .vimrc :
 cat > .vmrc <<EOF
-# .vimrc
+### .vimrc
 set tabstop=2
 set expandtab
 set shiftwidth=2
@@ -51,12 +50,13 @@ k run deploy1 \
 vim deploy1.yaml
 
 
-> ##Create a Job YAML
+> 
+## Create a Job YAML
  ### Simple
- k create job job1 -oyaml --dry-run=client --image=busybox
+> k create job job1 -oyaml --dry-run=client --image=busybox
 ### Detail
 #### we can create a job
-k create job job1 -oyaml --image=busybox --dry-run=client > job1.yaml
+> k create job job1 -oyaml --image=busybox --dry-run=client > job1.yaml
 #### we create a pod to copy yaml from
 k run job1 \
     -oyaml \
@@ -72,14 +72,14 @@ vim job1.yaml
 restartPolicy: Never or restartPolicy: OnFailure.
 
 
-> 
+>  
 ## Create CronJob YAML
-
+>
 ### Simple
 k create cj cj1 -oyaml --dry-run=client --schedule="* * * * *" --image=busybox
 
 ### Detailed
-# we create the cronjob yaml
+#### we create the cronjob yaml
 k create cj cj1 -oyaml --dry-run=client --schedule="* * * * *" --image=busybox > cj1.yaml
 #### now the pod yaml
 k run cj1 \
