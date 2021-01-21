@@ -94,7 +94,8 @@ k run cj1 \
 vim cj1.yaml
 
 
-
+# Kubectl Cheat sheet
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 
 
