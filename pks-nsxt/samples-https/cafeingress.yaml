@@ -10,8 +10,13 @@ metadata:
     #ncp/ssl-mode: "passthrough" 
     #ncp/ssl-mode: "reencrypt" 
     ncp/ssl-mode: "offload" 
-    
 spec:
+  #-------------------Start HTTPS section ---------#
+  tls:
+  - hosts:
+    - cafe.example.com
+    secretName: cafe-example-secret # <----- This is the secret been created in previous step
+  #-------------------End HTTPS section ---------#
   rules:
   - host: cafe.example.com
     http:
@@ -19,8 +24,8 @@ spec:
       - path: /tea
         backend:
           serviceName: svc-tea
-          servicePort: 443
+          servicePort: 80
       - path: /coffee
         backend:
           serviceName: svc-coffee
-          servicePort: 443
+          servicePort: 80
