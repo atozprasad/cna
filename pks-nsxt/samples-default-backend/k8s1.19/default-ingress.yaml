@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: default-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nsx"
+    kubernetes.io/ingress.allow-http: "true"
+    #kubernetes.io/ingress.allow-http: "false"
+    #ingress.kubernetes.io/rewrite-target: /
+spec:
+  defaultBackend:
+    resource:
+      kind: Ingress
+      name: default-ingress
+  rules:
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          serviceName: svc-default
+          servicePort: 80
