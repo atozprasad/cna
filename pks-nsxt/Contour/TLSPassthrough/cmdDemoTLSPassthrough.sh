@@ -32,3 +32,5 @@ curl -v -k -H 'HOST:passthrough.contour.local' https://passthrough.contour.local
 echo -e "\n NextStep...";read;
 
 
+# Next step to try with HTTPS version https://hub.docker.com/r/mendhak/http-https-echo
+
