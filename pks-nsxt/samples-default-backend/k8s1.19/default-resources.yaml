@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-default
+spec:
+  ports:
+  - port: 80
+    targetPort: 5678
+  selector:
+    app: default
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: default
+spec:
+  selector:
+    matchLabels:
+      app: default
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: default
+    spec:
+      containers:
+      - name: default
+        image: harbor.corp.tanzu/library/http-echo
+        args:
+        - "-text=Hallo. Glad to have you here. What would you like to order /default or /tea"
+        ports:
+        - containerPort: 5678

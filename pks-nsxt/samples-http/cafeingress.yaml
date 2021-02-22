@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: cafe-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nsx"
+    kubernetes.io/ingress.allow-http: "true"
+    #kubernetes.io/ingress.allow-http: "false"
+    #ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: cafe.example.com
+    http:
+      paths:
+      - path: /tea
+        backend:
+          serviceName: svc-tea
+          servicePort: 80
+      - path: /coffee
+        backend:
+          serviceName: svc-coffee
+          servicePort: 80

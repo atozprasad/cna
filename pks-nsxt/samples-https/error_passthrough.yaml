@@ -1,0 +1,61 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"extensions/v1beta1","kind":"Ingress","metadata":{"annotations":{"ingress.kubernetes.io/rewrite-target":"/","kubernetes.io/ingress.allow-http":"false","kubernetes.io/ingress.class":"nsx","ncp/ssl-mode":"passthrough"},"name":"cafe-ingress-https","namespace":"default"},"spec":{"rules":[{"host":"cafe.example.com","http":{"paths":[{"backend":{"serviceName":"svc-tea","servicePort":80},"path":"/tea"},{"backend":{"serviceName":"svc-coffee","servicePort":80},"path":"/coffee"}]}}]}}
+    kubernetes.io/ingress.allow-http: "false"
+    kubernetes.io/ingress.class: nsx
+    ncp/error.loadbalancer: INVALID_INGRESS
+    ncp/ssl-mode: passthrough
+  creationTimestamp: "2021-01-21T20:52:09Z"
+  generation: 1
+  managedFields:
+  - apiVersion: extensions/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:ingress.kubernetes.io/rewrite-target: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+          f:kubernetes.io/ingress.allow-http: {}
+          f:kubernetes.io/ingress.class: {}
+          f:ncp/ssl-mode: {}
+      f:spec:
+        f:rules: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2021-01-21T20:52:09Z"
+  - apiVersion: networking.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:ncp/error.loadbalancer: {}
+    manager: ncp
+    operation: Update
+    time: "2021-01-21T20:52:09Z"
+  name: cafe-ingress-https
+  namespace: default
+  resourceVersion: "20299119"
+  selfLink: /apis/extensions/v1beta1/namespaces/default/ingresses/cafe-ingress-https
+  uid: 0477bd83-11aa-4b1e-8e64-1072a0329802
+spec:
+  rules:
+  - host: cafe.example.com
+    http:
+      paths:
+      - backend:
+          serviceName: svc-tea
+          servicePort: 80
+        path: /tea
+        pathType: ImplementationSpecific
+      - backend:
+          serviceName: svc-coffee
+          servicePort: 80
+        path: /coffee
+        pathType: ImplementationSpecific
+status:
+  loadBalancer: {}

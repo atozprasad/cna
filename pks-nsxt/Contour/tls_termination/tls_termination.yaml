@@ -1,0 +1,51 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: tlsterminate-contour
+  namespace: default
+spec:
+  virtualhost:
+    fqdn: tls.contour.local
+    tls:
+      secretName: contour-secret
+    #tcpproxy:
+  routes: 
+    - services:
+        - name: svc-tlsterminate
+          port: 443
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-tlsterminate
+spec:
+  ports:
+  - port: 443
+    targetPort: 443
+  selector:
+    app: tlsterminate
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tlsterminate
+spec:
+  selector:
+    matchLabels:
+      app: tlsterminate
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: tlsterminate
+    spec:
+      containers:
+      - name: tlsterminate
+        image: harbor.corp.tanzu/library/httpsportal
+        env:
+        - name: SERVERNAME
+          value: "tls.contour.local"
+        - name: EXTRANAMES
+          value: "tls.contour.local, https://tls.contour.local"
+        ports:
+        - containerPort: 443

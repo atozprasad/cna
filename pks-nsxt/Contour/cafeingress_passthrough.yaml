@@ -1,0 +1,13 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: cafe-ingress-https
+spec:
+  virtualhost:
+    fqdn: cafe.example.com
+    tls:
+      passthrough: true
+  tcpproxy:
+    services:
+    - name: svc-coffee
+      port: 80

@@ -1,0 +1,13 @@
+#This will block all the Hosts endpoints
+# Blocks all pods in all namespaces
+# including the controlplane except the calico "failsafe" ports 
+---
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: default-deny
+spec:
+  selector: All
+  types:
+  - Ingress
+  - egress
