@@ -47,4 +47,4 @@ spec:
 #       paths:
 #       - backend:
 #           serviceName: s2
-#           servicePort: 80
+#           servicePort: 80t 
