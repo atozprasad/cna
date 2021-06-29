@@ -7,6 +7,4 @@ kind create cluster
 echo -e "\n Cluster-info"
 kubectl cluster-info
 kubectl cluster-info > ./kind-cluster.info
-
-
 figlet "Done with this task"
