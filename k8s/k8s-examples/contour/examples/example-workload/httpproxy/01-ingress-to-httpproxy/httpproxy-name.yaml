@@ -28,7 +28,7 @@ spec:
       services:
         - name: s2
           port: 80
----
+#---
 # # ingress-name.yaml
 # apiVersion: extensions/v1beta1
 # kind: Ingress
@@ -48,4 +48,3 @@ spec:
 #       - backend:
 #           serviceName: s2
 #           servicePort: 80
-
