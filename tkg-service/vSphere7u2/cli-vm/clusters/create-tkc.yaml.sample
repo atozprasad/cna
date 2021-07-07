@@ -1,0 +1,20 @@
+apiVersion: run.tanzu.vmware.com/v1alpha1
+kind: TanzuKubernetesCluster
+metadata:
+  name: prasad-clu-01
+spec:
+  distribution:
+    version: v1.20
+  topology:
+    controlPlane:
+      class: guaranteed-large
+      count: 1
+      storageClass: vsan-default-storage-policy
+    workers:
+      class: guaranteed-large
+      count: 3
+      storageClass: vsan-default-storage-policy
+  settings:
+    storage:
+      classes: ["vsan-default-storage-policy"]
+      defaultClass: vsan-default-storage-policy

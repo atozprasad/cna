@@ -1,0 +1,20 @@
+apiVersion: run.tanzu.vmware.com/v1alpha1
+kind: TanzuKubernetesCluster
+metadata:
+  name: ${CLUSTER-NAME}
+spec:
+  distribution:
+    version: ${K8S_VERSION}
+  topology:
+    controlPlane:
+      class: ${CONTROLPLANE_CLASS}
+      count: ${CONTROLPLANE_COUNT}
+      storageClass: ${CONTROLPLANE_STORAGE_CLASS}
+    workers:
+      class: ${WORKER_CLASS}
+      count: 3
+      storageClass: ${WORKER_STORAGE_CLASS}
+  settings:
+    storage:
+      classes: ["${STORAGE_CLASSES}"]
+      defaultClass: ${DEFAULT_CLASSES}

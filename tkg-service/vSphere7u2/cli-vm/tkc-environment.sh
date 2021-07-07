@@ -1,0 +1,11 @@
+#!/bin/bash
+TKC_CLUSTER_NAME=prasad-clu-01
+K8S_VERSION=v1.20
+CONTROLPLANE_CLASS=guaranteed-large
+CONTROLPLANE_COUNT=1
+CONTROLPLANE_STORAGE_CLASS=vsan-default-storage-policy
+WORKER_CLASS=guaranteed-large
+WORKER_STORAGE_CLASS=vsan-default-storage-policy
+WORKER_COUNT=3
+STORAGE_CLASSES=vsan-default-storage-policy
+DEFAULT_CLASSES=vsan-default-storage-policy
