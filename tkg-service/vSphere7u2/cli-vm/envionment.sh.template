@@ -1,4 +1,5 @@
 export SUPERVISOR_CLUSTER_IP=<SupervisorClusterIP>
+export SUPERVISOR_CLUSTER_USER=<SupervisorUser@domain>
 export KUBECTL_VSPHERE_PASSWORD=<PRE_USER_PASSWORD>
 export VS_NAMESPACE=<vSphereNameSpace>
 export PRE_USER_NAME=<DevopsUserName>
