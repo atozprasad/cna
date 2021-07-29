@@ -7,5 +7,4 @@ rm -f create-tkc.yaml temp.yaml
 ) >temp.yaml
 . temp.yaml
 cat create-tkc.yaml
-exit
 kubectl apply -f create-tkc.yaml
