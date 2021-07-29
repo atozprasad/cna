@@ -1,0 +1,22 @@
+cat <<EOF >create-tkc.yaml
+apiVersion: run.tanzu.vmware.com/v1alpha1
+kind: TanzuKubernetesCluster
+metadata:
+  name: ${TKC_CLUSTER_NAME}
+spec:
+  distribution:
+    version: ${K8S_VERSION}
+  topology:
+    controlPlane:
+      class: ${CONTROLPLANE_CLASS}
+      count: ${CONTROLPLANE_COUNT}
+      storageClass: ${CONTROLPLANE_STORAGE_CLASS}
+    workers:
+      class: ${WORKER_CLASS}
+      count: ${WORKER_COUNT}
+      storageClass: ${WORKER_STORAGE_CLASS}
+  settings:
+    storage:
+      classes: ["${STORAGE_CLASSES}"]
+      defaultClass: ${DEFAULT_CLASSES}
+EOF
