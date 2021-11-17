@@ -84,7 +84,7 @@ spec:
     spec:
       containers:
       - name: yelb-ui
-        image: mreferre/yelb-ui:0.6
+        image: harbor-repo.vmware.com/challagandlp/mreferre/yelb-ui:0.6
         ports:
         - containerPort: 80
 ---
@@ -106,7 +106,7 @@ spec:
     spec:
       containers:
       - name: redis-server
-        image: redis:4.0.2
+        image: harbor-repo.vmware.com/challagandlp/mreferre/redis:4.0.2
         ports:
         - containerPort: 6379
 ---
@@ -128,7 +128,7 @@ spec:
     spec:
       containers:
       - name: yelb-db
-        image: mreferre/yelb-db:0.5
+        image: harbor-repo.vmware.com/challagandlp/mreferre/yelb-db:0.5
         ports:
         - containerPort: 5432
 ---
@@ -150,6 +150,6 @@ spec:
     spec:
       containers:
       - name: yelb-appserver
-        image: mreferre/yelb-appserver:0.5
+        image: harbor-repo.vmware.com/challagandlp/mreferre/yelb-appserver:0.5
         ports:
         - containerPort: 4567
