@@ -1,30 +1,46 @@
-## Yelb with Nodeport
-### Step 1 - Deploy the application
+#Yelb Demo app for K8S 
 
-kubectl create ns yelb
-kubectl apply -f https://raw.githubusercontent.com/lamw/vmware-k8s-app-demo/master/yelb.yaml
+[Yelb](http://it20.info.s3-website-us-east-1.amazonaws.com/2017/07/yelb-yet-another-sample-app/) is VMware demo application that was built by Massimo Re Ferre' and Andrea Siviero. This web application contains the following services: UI Frontend, Application Server, Database Server and Caching Service using Redis.
 
-### Step 2 - Verify all pods are ready
+Kubernetes apps can be exposed to outside world using multiple ways. In this example3 we will use two different methods to expose the service.
+- **NodePort** based example : [yelb-nodeport.yaml](https://github.com/atozprasad/cna/blob/master/k8s/k8s-examples/multi-tier-apps/yelb/yelb-nodeport.yaml)
+- **Load Balancer** example :[yelb-lb.yaml](https://github.com/atozprasad/cna/blob/master/k8s/k8s-examples/multi-tier-apps/yelb/yelb-lb.yaml)
+##Example with Node port
+**Step 1 - Deploy the application**
 
-kubectl -n yelb get pods
+`kubectl create ns yelb`
 
-### Step 3 - To access the application, open web browser to http://<ip>:30001
+`kubectl apply -f https://github.com/atozprasad/cna/blob/master/k8s/k8s-examples/multi-tier-apps/yelb/yelb-nodeport.yaml`
 
-kubectl -n yelb describe pod $(kubectl -n yelb get pods | grep yelb-ui | awk '{print $1}') | grep "Node:"
+**Step 2 Exaplore the resources been deployed**
 
-## LoadBalancer Service Deployment:
+`kubectl -n yelb get pods,deployment,svc`
+Note: You should see the pods in the satus *Ready*
 
-### Step 1 - Deploy the application
+**Step 3 Fech access details**
 
-kubectl create ns yelb
-kubectl apply -f https://raw.githubusercontent.com/lamw/vmware-k8s-app-demo/master/yelb-lb.yaml
+`kubectl -n yelb describe pod $(kubectl -n yelb get pods | grep yelb-ui | awk '{print $1}') | grep "Node:"`
 
-### Step 2 - Verify all pods are ready
+**Step 4 Access app-service from your browser**
+http://< IP from prevoius command>:30001
 
-kubectl -n yelb get pods
+##Example with LoadBalancer
 
-### Step 3 - To access the application, open web browser to http://<external-ip>
+***Pre-requisite:*** Loadbalancer service should be available at the Perimeter level and should be integrated with the K8S
 
-kubectl -n yelb get svc/yelb-ui
+**Step 1 - Deploy the application**
 
-Note: It is expected that your K8s cluster can support a LoadBalancer Service
+`kubectl apply -f https://github.com/atozprasad/cna/blob/master/k8s/k8s-examples/multi-tier-apps/yelb/yelb-lb.yaml`
+
+**Step 2 Exaplore the resources been deployed**
+
+`kubectl -n yelb get pods,deployment,svc`
+Note: You should see the pods in the satus *Ready*.
+
+**Step 3 Fech access details**
+`kubectl -n yelb  svc/yelb-ui -o wide`
+Note : You should have the IP address for the Service at ExternalIP coloumn
+
+**Step 4 Access App**
+From the Browswer http://< ExternalIP >:
+Note : You should have the IP address for the Service at ExternalIP coloumn
