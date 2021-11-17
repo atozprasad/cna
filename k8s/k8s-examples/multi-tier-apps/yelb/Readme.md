@@ -32,6 +32,8 @@ http://< IP from prevoius command>:30001
 
 ### Step 1 - Deploy the application**
 
+`kubectl create ns yelb`
+
 `kubectl apply -f https://github.com/atozprasad/cna/blob/master/k8s/k8s-examples/multi-tier-apps/yelb/yelb-lb.yaml`
 
 ### Step 2 Exaplore the resources been deployed**
