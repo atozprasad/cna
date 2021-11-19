@@ -50,18 +50,17 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: yelb-ui
+  name: yelb-ui-svc
   labels:
     app: yelb-ui
     tier: frontend
   namespace: yelb
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
   - port: 80
     protocol: TCP
     targetPort: 80
-    nodePort: 30001
   selector:
     app: yelb-ui
     tier: frontend
@@ -87,6 +86,9 @@ spec:
         image: harbor-repo.vmware.com/challagandlp/mreferre/yelb-ui:0.6
         ports:
         - containerPort: 80
+        securityContext:
+          allowPrivilegeEscalation: true
+          runAsUser: 0
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -131,6 +133,9 @@ spec:
         image: harbor-repo.vmware.com/challagandlp/mreferre/yelb-db:0.5
         ports:
         - containerPort: 5432
+        securityContext:
+          allowPrivilegeEscalation: true
+          runAsUser: 0
 ---
 apiVersion: apps/v1
 kind: Deployment

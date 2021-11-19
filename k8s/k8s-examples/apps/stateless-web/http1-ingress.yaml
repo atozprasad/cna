@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: default
+  name: stateless-web
+  labels:
+    app: stateless-web
+spec:
+  rules:
+  - host: stateless.apps.ocp-jb.vsanpe.vmware.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: stateless-web
+            port:
+              number: 80
