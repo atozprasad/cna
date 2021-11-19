@@ -24,8 +24,6 @@ Note: You should see the pods in the satus *Ready*
 ### Step 4 Access app-service from your browser**
 http://< IP from prevoius command>:30001
 
-
-
 ## Example with LoadBalancer
 
 ***Pre-requisite:*** Loadbalancer service should be available at the Perimeter level and should be integrated with the K8S
