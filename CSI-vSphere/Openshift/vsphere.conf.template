@@ -1,0 +1,14 @@
+[Global]
+
+# run the following on your OCP cluster to get the ID 
+# oc get clusterversion -o jsonpath='{.items[].spec.clusterID}{"\n"}'
+
+cluster-id = "${K8S_CLUSTERID}"
+
+[VirtualCenter "${VCENTER}"]
+
+insecure-flag = "true"
+user = "${VC_USER}"
+password = "${VC_PWD}"
+port = "${VC_PORT}"
+datacenters = "${VC_DATACENTER}"
