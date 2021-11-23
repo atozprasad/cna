@@ -83,7 +83,7 @@ spec:
     spec:
       containers:
       - name: yelb-ui
-        image: harbor-repo.vmware.com/challagandlp/mreferre/yelb-ui:0.6
+        image: harbor-repo.vmware.com/challagandlp/mreferre/yelb-ui:0.7
         ports:
         - containerPort: 80
         securityContext:
