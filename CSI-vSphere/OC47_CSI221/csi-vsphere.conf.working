@@ -1,0 +1,10 @@
+[Global]
+cluster-id = "7ea8f69b-2dad-4857-828f-8905808415ec"
+cluster-distribution = "Openshift" 
+
+[VirtualCenter "10.156.137.6"]
+insecure-flag = "true"
+user = "administrator@vsphere.local"
+password = "P@ssw0rd1!"
+port = "443"
+datacenters = "jbvcf-w01-dc01"
