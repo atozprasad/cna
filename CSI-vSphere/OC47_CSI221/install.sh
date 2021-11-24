@@ -5,11 +5,16 @@ echo -e "\n Generating 2 files (1) csi-vsphere.conf (2) vsphere.conf"
 ./generate_conf.sh
 ls -lrt csi-vsphere.conf vsphere.conf
 
+#Step -01 Preparenodes
+./prepareNodes.sh
 
 #Step-0.2 Generate vsphere.conf and csi-vsphere.conf
+
 ./generate_conf.sh
 
 #Step-1 Create configmap in kube-system namespace
+
+kubectl taint nodes <k8s-primary-name> node-role.kubernetes.io/master=:NoSchedule
 
 oc create configmap cloud-config --from-file=./vsphere.conf --namespace=kube-system
 
