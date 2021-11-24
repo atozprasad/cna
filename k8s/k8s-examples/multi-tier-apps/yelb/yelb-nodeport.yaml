@@ -85,6 +85,9 @@ spec:
       containers:
       - name: yelb-ui
         image: harbor-repo.vmware.com/challagandlp/mreferre/yelb-ui:0.6
+        securityContext:
+          allowPrivilegeEscalation: true
+          runAsUser: 0
         ports:
         - containerPort: 80
 ---
@@ -129,6 +132,9 @@ spec:
       containers:
       - name: yelb-db
         image: harbor-repo.vmware.com/challagandlp/mreferre/yelb-db:0.5
+        securityContext:
+          allowPrivilegeEscalation: true
+          runAsUser: 0
         ports:
         - containerPort: 5432
 ---
