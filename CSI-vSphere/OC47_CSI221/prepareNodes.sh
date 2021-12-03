@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./vsphere.conf
+source ./vsphere.env
 
 kubectl taint nodes ${OCP_VM_PREFIX} node-role.kubernetes.io/master=:NoSchedule
 
