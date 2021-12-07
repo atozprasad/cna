@@ -1,3 +1,13 @@
+# Steps followed in order to make it work for Openshift
+
+- Copy the Helm chart to your loc
+- We need to fetch all the images
+- Tag them as our repo name
+- Push them to our local repo
+- Identify the service accounts created by this app and add them to the SCC user 
+
+
+
 #Activities performed
 `helm 
 #Issues encountered
