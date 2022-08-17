@@ -1,0 +1,22 @@
+apiVersion: run.tanzu.vmware.com/v1alpha2
+kind: TanzuKubernetesCluster
+metadata:
+  name: finance-clu-01
+  namespace: finance
+spec:
+  topology:
+    controlPlane:
+      replicas: 3
+      vmClass: guaranteed-medium
+      storageClass: jbvcf-w01-wld01-vsan-storage-policy
+      tkr:
+        reference:
+          name: v1.21.2---vmware.1-tkg.1.ee25d55 #v1.21.2---vmware.1-tkg.1.ee25d55
+    nodePools:
+    - name: general
+      replicas: 5
+      vmClass: guaranteed-medium
+      storageClass: jbvcf-w01-wld01-vsan-storage-policy
+      tkr:
+        reference:
+          name: v1.21.2---vmware.1-tkg.1.ee25d55

@@ -1,0 +1,15 @@
+#!/bin/bash
+#For run.tanzu.vmware.com/v1alpha2
+
+SUPERVISOR_CLUSTER_IP="XXX.XXX.XXX.XXX"
+CLUSTER_NAME="prasad-clu-01"
+VS_NAMESPACE="VSPHERE_NAMESPACE"
+CP_NODE_COUNT=3
+CP_VMCLASS="guaranteed-medium"
+CP_STORAGE_POLICY="jbvcf-w01-wld01-vsan-storage-policy"
+CP_TKR="v1.21.2---vmware.1-tkg.1.ee25d55"
+WN_NP1_NAME="general" 
+WN_NP1_NODE_COUNT=5
+WN_NP1_VMCLASS="guaranteed-medium"
+WORKER_STORAGE_CLASS="vsan-default-storage-policy"
+WN_NP1_TKR="v1.21.2---vmware.1-tkg.1.ee25d55"

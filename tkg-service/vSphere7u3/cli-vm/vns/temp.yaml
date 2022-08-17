@@ -1,0 +1,16 @@
+cat <<EOF >create-devops-role.yaml
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: rolebinding-cluster-user-${DEVOPS_USER_NAME}
+  namespace: ${VS_NAMESPACE}
+roleRef:
+  kind: ClusterRole
+  name: edit                             #Default ClusterRole
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+- kind: User
+  name: sso:${DEVOPS_USER_NAME}@${DEVOPS_USER_DOMAIN}            #sso:<username>@<domain>
+  apiGroup: rbac.authorization.k8s.io
+
+EOF
