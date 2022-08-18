@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
-source ../vns/vns.env
 source ./tkc.env
+source ../vns.env
 
 echo "kubectl vsphere login --server=${SUPERVISOR_CLUSTER_IP} --tanzu-kubernetes-cluster-name ${TKC_CLUSTER_NAME} --tanzu-kubernetes-cluster-namespace ${VS_NAMESPACE} --vsphere-username ${VS_NS_USER} --insecure-skip-tls-verify "
 
