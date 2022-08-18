@@ -1,4 +1,12 @@
 # Minor modification from http://www.it20.info/2017/07/yelb-yet-another-sample-app/ for demo purposes
+#
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: "yelb"
+  labels:
+    name: "dev"
+---
 apiVersion: v1
 kind: Service
 metadata:

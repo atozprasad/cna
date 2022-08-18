@@ -19,6 +19,12 @@ kubectl api-resources
 read -p "Next ..."
 clear
 
+
+figlet "List resources"
+kubectl get storageclass
+read -p "Next ..."
+clear
+
 figlet "List nodes"
 kubectl get nodes 
 

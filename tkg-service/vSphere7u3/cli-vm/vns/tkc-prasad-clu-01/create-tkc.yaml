@@ -6,18 +6,18 @@ metadata:
 spec:
   topology:
     controlPlane:
-      replicas: 
-      vmClass: 
-      storageClass: 
+      replicas: 3
+      vmClass: guaranteed-medium
+      storageClass: jbvcf-w01-wld01-vsan-storage-policy
       tkr:
         reference:
-          name:  #v1.21.2---vmware.1-tkg.1.ee25d55
+          name: v1.21.2---vmware.1-tkg.1.ee25d55 #v1.21.2---vmware.1-tkg.1.ee25d55
     nodePools:
-    - name: 
+    - name: nodepool1
       replicas: 
-      vmClass: 
-      storageClass: 
+      vmClass: guaranteed-medium
+      storageClass: jbvcf-w01-wld01-vsan-storage-policy
       tkr:
         reference:
-          name: 
+          name: v1.21.2---vmware.1-tkg.1.ee25d55
           #v1.21.2---vmware.1-tkg.1.ee25d55
