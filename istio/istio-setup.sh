@@ -2,12 +2,16 @@
 set -x #echo on
 
 DASHBOARD_IP=192.168.20.6
+VERSION="1.15.0"
+ARCH="x86_64"
 
 figlet "Installation & Setup"
+figlet "ISTIO ${VERSION}"
 # Download Istio and setpath
 echo -e "\n Download Istio and setpath"
-curl -L https://istio.io/downloadIstio | sh -
-cd istio-1.6.0
+curl -L https://istio.io/downloadIstio | ISTIO_VERSION=${VERSION} TARGET_ARCH=${ARCH} sh -
+#curl -L https://istio.io/downloadIstio | sh -
+cd istio-${VERSION}
 export PATH=$PWD/bin:$PATH
 echo -e "\n Next Step..." ;read;clear
 
