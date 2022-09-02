@@ -1,9 +1,6 @@
 #!/bin/bash
 set -x #echo on
-
-DASHBOARD_IP=192.168.20.6
-VERSION="1.15.0"
-ARCH="x86_64"
+source setup.env
 
 figlet "Installation & Setup"
 figlet "ISTIO ${VERSION}"
