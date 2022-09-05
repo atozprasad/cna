@@ -1,10 +1,7 @@
 #!/bin/bash
 #set -x #echo on
-
-DASHBOARD_IP=192.168.20.6
-
-cd istio-1.6.0
-
+source setup.env
+cd istio-${VERSION}
 #echo -e "\n Apply destination rules"
 #read
 #echo -e "\n "kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml"
